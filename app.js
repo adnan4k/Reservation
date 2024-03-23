@@ -9,7 +9,10 @@ import roomsRoute from "./routes/rooms.js"
 const app = express();
 
 //middleware
-
+app.use('/auth',authRoute)
+app.use('/hotels',hotelsRoute)
+app.use('/rooms',roomsRoute)
+app.use('/users',usersRoute)
 
 mongoose.connect("mongodb://127.0.0.1:27017/Reservation")
   .then(() => {
