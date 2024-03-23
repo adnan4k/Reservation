@@ -2,10 +2,7 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const hotelSchema = new Schema({
-    name:{
-        type:String,
-        required:true
-    },
+
     name:{
         type:String,
         required:true
@@ -51,4 +48,4 @@ const hotelSchema = new Schema({
     },
 })
 
-export  const Hotel = mongoose.model("Hotel",hotelSchema);
+export default mongoose.model("Hotel", hotelSchema);

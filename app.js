@@ -7,7 +7,7 @@ import roomsRoute from "./routes/rooms.js"
 
 
 const app = express();
-
+app.use(express.json())
 //middleware
 app.use('/auth',authRoute)
 app.use('/hotels',hotelsRoute)
