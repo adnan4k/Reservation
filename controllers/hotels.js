@@ -1,3 +1,4 @@
+import { query } from "express";
 import Hotel from "../models/Hotel.js";
 
 export const createHotel = async (req, res, next) => {
@@ -19,8 +20,10 @@ export const getHotel = async (req, res, next) => {
   }
 };
 export const getHotels = async (req, res, next) => {
+    const {min,max,featured} = req.query
   try {
-    const hotels = await Hotel.find();
+    const hotels = await Hotel.find({featured:featured,cheepestPrice:{$gt:min || 1,$lt:max || 99}}).limit(req.query.limit);
+    console.log(hotels,'hotels')
     return res.status(200).json(hotels);
   } catch (error) {
     next(error);

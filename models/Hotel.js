@@ -29,7 +29,7 @@ const hotelSchema = new Schema({
     },
     featured:{
         type:Boolean,
-       default:false
+       default:true
     },
     rating:{
         type:Number,
