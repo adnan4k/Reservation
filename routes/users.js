@@ -7,6 +7,9 @@ import { verifyAdmin, verifyToken, verifyUser } from "../utils/VerifyToken.js"
  router.get('/authentication',verifyToken,(req,res)=>{
     res.send("hello user you are logged in")
  })
+ router.get('/auth',verifyAdmin,(req,res)=>{
+    res.send("hello admin you are logged in")
+ })
      router.get('/:id',verifyUser,getUser)
      router.get('/',verifyAdmin,getUsers)
      router.delete('/:id',verifyUser,deleteUser)
