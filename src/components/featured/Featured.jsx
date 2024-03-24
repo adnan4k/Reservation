@@ -2,9 +2,12 @@ import useFetch from "../../pages/hoooks/useFetch";
 import "./featured.css";
 
 const Featured = () => {
-  const { data, loading, error } = useFetch()
+  const { data, loading, error } = useFetch('http://localhost:2303/hotels/countByCity?cities=berlin,madrid,london')
+  console.log(data,'data')
   return (
     <div className="featured">
+      { loading ? "is loading":
+        <>
       <div className="featuredItem">
         <img
           src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o="
@@ -12,8 +15,8 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Dublin</h1>
-          <h2>123 properties</h2>
+          <h1>Berlin</h1>
+          <h2>{data[0]} Properties</h2>
         </div>
       </div>
       
@@ -24,8 +27,8 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Reno</h1>
-          <h2>533 properties</h2>
+          <h1>Madrid</h1>
+          <h2>{data[1]} Properties</h2>
         </div>
       </div>
       <div className="featuredItem">
@@ -35,10 +38,11 @@ const Featured = () => {
           className="featuredImg"
         />
         <div className="featuredTitles">
-          <h1>Austin</h1>
-          <h2>532 properties</h2>
+          <h1>London</h1>
+          <h2>{data[2]} Properties</h2>
         </div>
       </div>
+      </>}
     </div>
   );
 };
