@@ -6,7 +6,7 @@ import { verifyAdmin } from "../utils/VerifyToken.js"
      router.post('/:hotelId',verifyAdmin,createRoom)
      router.get('/:id',getRoom)
      router.get('/',getRooms)
-     router.delete('/:id',verifyAdmin,deleteRoom)
+     router.delete('/:id/:hotelId',verifyAdmin,deleteRoom)
      router.put('/:id',verifyAdmin,updateRoom)
 
  export default router
