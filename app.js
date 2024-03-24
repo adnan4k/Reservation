@@ -1,5 +1,7 @@
 import express from "express"
 import mongoose from "mongoose"
+import cookieParser from "cookie-parser"
+import dotenv from "dotenv"
 import authRoute from "./routes/auth.js"
 import usersRoute from "./routes/users.js"
 import hotelsRoute from "./routes/hotels.js"
@@ -8,6 +10,9 @@ import roomsRoute from "./routes/rooms.js"
 
 const app = express();
 app.use(express.json())
+app.use(cookieParser())
+dotenv.config();
+
 //middleware
 app.use('/auth',authRoute)
 app.use('/hotels',hotelsRoute)
