@@ -16,9 +16,8 @@ export const getHotel = async (req, res, next) => {
     const hotel = await Hotel.findById(req.params.id);
     return res.status(200).json(hotel);
   } catch (error) {
-    next(error);
-  }
-};
+    next(error)
+}};
 export const getHotels = async (req, res, next) => {
     const {min,max,featured} = req.query
   try {
